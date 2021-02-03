@@ -95,16 +95,17 @@ function updateHornImage(horn, hornImg) {
 }
 
 /**
- * Play the horn sound
+ * Control the horn audio settings
  */
 function playHorn() {
   let button = document.getElementById("honk-btn");
   let horn = document.getElementById("horn-sound");
-  let sound = new Audio("./assets/media/audio/air-horn.mp3");
   let volVal = document.getElementById("volume-number");
 
+  // Play audio on button click
   button.onclick = function () {
-    sound.play();
+    horn.play();
+    return false;
   }
 
   // Disable button if volume is 0
