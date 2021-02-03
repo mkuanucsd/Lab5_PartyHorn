@@ -101,12 +101,23 @@ function playHorn() {
   let button = document.getElementById("honk-btn");
   let horn = document.getElementById("horn-sound");
   let sound = new Audio("./assets/media/audio/air-horn.mp3");
+  let volVal = document.getElementById("volume-number");
 
   button.onclick = function () {
-    horn.play();
+    sound.play();
   }
+
+  // Disable button if volume is 0
+  setInterval(function () {
+    if (volVal.value == 0) {
+      button.disabled = true;
+    } else {
+      button.disabled = false;
+    }
+  }, 0);
 }
 
 /* Functions to run */
 adjustVolumeNumber();
 changeHorn();
+playHorn();
